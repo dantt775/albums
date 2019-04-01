@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Button } from 'react-native';
+import { ScrollView, Button } from 'react-native';
 
 import axios from 'axios';
 import AlbumDetail from './AlbumDetail';
@@ -24,13 +24,10 @@ class AlbumList extends Component {
     console.log(this.state);
 
     return (
-      <View>
+      <ScrollView>
         {this.renderAlbums()}
-        {/* <Button
-          onPress={this.changeColor}   
-          title='press me'       
-        /> */}
-      </View>
+        
+      </ScrollView>
     );
   }
 }
