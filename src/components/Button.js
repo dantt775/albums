@@ -2,14 +2,14 @@ import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 
 
-const Button = () => {
+const Button = ({whenPress, children}) => {
   
   const { buttonStyle, textStyle } = styles;
 
   return (
-    <TouchableOpacity style={buttonStyle}>
+    <TouchableOpacity onPress={whenPress} style={buttonStyle}>
       <Text style={textStyle}>
-        Cick me
+        {children}
       </Text>
     </TouchableOpacity>
 
@@ -22,7 +22,7 @@ const styles = {
     flex: 1,
     alignSelf: 'stretch',
     backGroundColor: '#fff',
-    borderRadius: 5,
+    borderRadius: 4,
     borderColor: '#007aff',
     marginLeft: 5,
     marginRight: 5

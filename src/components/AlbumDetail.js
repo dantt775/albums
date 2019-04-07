@@ -1,12 +1,13 @@
 import React from 'react'
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, Linking } from 'react-native'
 
 import Card from './Card';
 import CardSection from './CardSection';
 import Button from './Button';
 
+//props desconstruct 
 const AlbumDetail = ({ album }) => {
-  const { title, artist, thumbnail_image, image } = album;
+  const { title, artist, thumbnail_image, image, url } = album;
   const {
     thumbnailStyle,
     headerContentStyle,
@@ -30,13 +31,15 @@ const AlbumDetail = ({ album }) => {
         </CardSection>
 
         <CardSection>
-          <Image 
-          style={imageStyle}
-          source={{uri: image}}></Image>
+          <Image
+            style={imageStyle}
+            source={{ uri: image }}></Image>
         </CardSection>
-        
+
         <CardSection>
-          <Button />
+          <Button whenPress={() => Linking.openURL(url)}>
+          Buy Now!
+          </Button >
         </CardSection>
 
       </Card>
@@ -50,7 +53,7 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'space-around'
   },
-  headerTextStyle:{
+  headerTextStyle: {
     fontSize: 18
   },
   thumbnailStyle: {
@@ -63,7 +66,7 @@ const styles = {
     marginLeft: 10,
     marginRight: 10
   },
-  imageStyle:{
+  imageStyle: {
     height: 300,
     flex: 1,
     width: null
